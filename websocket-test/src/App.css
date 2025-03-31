@@ -1,0 +1,269 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Container Styles */
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Login Styles */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Main Container Styles */
+.main-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  background-color: #2196f3;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  padding: 20px;
+}
+
+/* Player List Styles */
+.player-list {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.player-list ul {
+  list-style: none;
+}
+
+.player-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-list li:last-child {
+  border-bottom: none;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-id {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Invitation Box Styles */
+.invitation-box {
+  background-color: #fff3cd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.invitation-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Game Board Styles */
+.game-board-container {
+  text-align: center;
+}
+
+.game-status {
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: default;
+}
+
+.cell.clickable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cell.clickable:hover {
+  background-color: #f0f0f0;
+}
+
+.x-cell {
+  color: #2196f3;
+}
+
+.o-cell {
+  color: #f44336;
+}
+
+.game-info {
+  margin-top: 20px;
+}
+
+/* Button Styles */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.connect-btn {
+  background-color: #2196f3;
+  color: white;
+  width: 100%;
+}
+
+.disconnect-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.invite-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.accept-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.decline-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.quit-btn {
+  background-color: #f44336;
+  color: white;
+  margin-top: 10px;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  color: white;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.notification.info {
+  background-color: #2196f3;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+/* Status Text Styles */
+.game-result {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.turn-status {
+  margin: 10px 0;
+}
+
+.your-turn {
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.waiting {
+  color: #666;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
