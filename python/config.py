@@ -1,27 +1,33 @@
 import os
 import json
-from typing import List
+from dotenv import load_dotenv
 
-# Get environment variables with defaults
+# Load environment variables from .env file
+load_dotenv()
+
+# Get environment variables with safe parsing
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
-ALLOWED_ORIGINS = json.loads(os.getenv("ALLOWED_ORIGINS", '["http://localhost:3000"]'))
 
-# Configuration based on environment
-if ENVIRONMENT == "production":
-    # Production settings
-    ALLOWED_ORIGINS = [
-        "http://localhost:3000",  # Local development
-        # "https://your-frontend-domain.com",  # Replace with your actual frontend URL
-        # "http://your-frontend-domain.com",   # Include both http and https
-    ]
-else:
-    # Development settings
-    ALLOWED_ORIGINS = ["http://localhost:3000"]
+# Parse allowed origins with error handling
 
-# WebSocket settings
-WS_PING_INTERVAL = 20
-WS_PING_TIMEOUT = 20
-WS_CLOSE_TIMEOUT = 20
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS",)
+ALLOWED_ORIGINS = json.loads(allowed_origins_env)
 
-# Game settings
-GAME_TIMEOUT = int(os.getenv("GAME_TIMEOUT", "60"))  # seconds 
+
+# WebSocket settings with safe parsing
+WS_PING_INTERVAL = int(os.getenv("WS_PING_INTERVAL", "20"))
+WS_PING_TIMEOUT = int(os.getenv("WS_PING_TIMEOUT", "20"))
+WS_CLOSE_TIMEOUT = int(os.getenv("WS_CLOSE_TIMEOUT", "20"))
+
+# Game settings with safe parsing
+GAME_TIMEOUT = int(os.getenv("GAME_TIMEOUT", "60"))
+
+# Debug output
+if ENVIRONMENT == "development":
+    print(f"Environment: {ENVIRONMENT}")
+    print(f"Allowed Origins: {ALLOWED_ORIGINS}")
+    print(f"Game Timeout: {GAME_TIMEOUT} seconds")
+    print(f"WebSocket Settings:")
+    print(f"  - Ping Interval: {WS_PING_INTERVAL}")
+    print(f"  - Ping Timeout: {WS_PING_TIMEOUT}")
+    print(f"  - Close Timeout: {WS_CLOSE_TIMEOUT}")
