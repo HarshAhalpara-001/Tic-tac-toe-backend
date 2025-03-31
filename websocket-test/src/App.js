@@ -529,7 +529,7 @@ function TicTacToeBoard({ game, onMove, onQuit, isDarkMode }) {
           animation: {
             scale: [1, 1.1, 1],
             rotate: [0, 3, 0],
-            transition: { duration: 1, repeat: Infinity },
+            transition: { duration: 4, repeat: Infinity },
           },
         };
       case "draw":
